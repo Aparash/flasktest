@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flickr public feed</title>
+
+    <!-- using cdns for now -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!--
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"-->
+</head>
+
+{% block body %}
+<div class="container">
+    <div class="col-lg-12 col-md-12">
+        <h1>Flickr Public Feed</h1>
+
+        <p>You can search for tags in the feed</p>
+    </div>
+
+    <form action="/" method="post">
+
+
+        <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." name="searchtag">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Search Tags</button>
+      </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+        </div>
+    </form>
+
+    <!-- /.col-lg-6 -->
+    <div class="col-lg-12 col-md-12">
+        {% for f in feed: %}
+        <div class="feedimage">
+            {{ f }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- loading the scripts after the page is loaded -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--script-- src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script-->
+{% endblock %}
+</html>
